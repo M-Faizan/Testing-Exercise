@@ -1,0 +1,57 @@
+package com.QA;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Campaign {
+	WebDriver driver;
+	
+	   public Campaign(WebDriver driver) 
+		
+		{
+			this.driver=driver;
+		}
+	   
+	 /*This function will be access from AddCanpaignTest, 
+	  it will log in and will Add Campaign and verify there is at-least one campaign exist.*/
+	   
+	   public void campaign()  {	 
+			
+			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			 By campaign=By.xpath("/html/body/div[1]/bm-navigation/div/ul/li[3]/a/span"); 
+			 By Addcampaign=By.xpath("/html/body/div[1]/div/section/div/bm-list-table/div/h3/bm-create-link/a/span");
+				
+			    driver.findElement(campaign).click();	 
+		        driver.findElement(Addcampaign).click();
+				
+		  }
+		 public void AddCompaign(String name, String subject, String body )  {	 
+				
+			 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			 By Name=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[1]/input"); 
+			 By Beacon=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[4]/div/div/input");			 
+			 By SelectB=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[4]/div/ul/li/div[3]/a/div");	
+			 
+			 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			 By App=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[6]/div/div/input");
+			 
+	         By SelectA=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[6]/div/ul/li/div[3]/a/div");
+	         
+	         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	         By Subject=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[12]/input");  
+			 By Body=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[13]/textarea"); 
+			 By Save=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[24]/button[1]");
+   
+			    driver.findElement(Name).sendKeys(name);	           
+			 	driver.findElement(Beacon).click();			 	
+			 	driver.findElement(SelectB).click();			 	 
+		        driver.findElement(App).click();		        
+		        driver.findElement(SelectA).submit();
+		        driver.findElement(Subject).sendKeys(subject);
+		        driver.findElement(Body).sendKeys(body);
+		        driver.findElement(Save).click();
+		        
+		  }
+}

@@ -1,0 +1,37 @@
+package TestCases;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+
+public class Test1 {
+WebDriver driver;
+	
+	@Test 
+	public void POM() 
+	{ 
+		//Creating instance of loginPage 
+		
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+        driver.get("https://manage.sensorberg.com/#/signin");
+		
+        LogIn loginPage = new LogIn(driver); 
+		
+		loginPage.Login("fazi.g117@gmail.com", "Software123");
+		
+		/*loginPage.typeUserName();
+		loginPage.typePassword();
+		loginPage.Submit();*/
+		//Home mouse=new Home(driver);
+		//mouse.MouseHover();
+		
+	
+		
+	}
+	
+	
+}

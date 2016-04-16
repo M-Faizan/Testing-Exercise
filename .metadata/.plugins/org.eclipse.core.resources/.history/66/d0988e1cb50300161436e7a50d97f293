@@ -1,0 +1,32 @@
+package com.tesecases;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.QA.LogIn;
+
+
+public class Test1 {
+WebDriver driver;
+	
+	@Test 
+	public void Test1() 
+	{ 
+		//Creating instance of loginPage 
+		
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+        driver.get("http://qa-manager.voipfuture.com/platform/Login.action");
+		
+		LogIn loginPage = new LogIn(driver); 
+		
+		loginPage.Login("fmushtaq", "voipfuture117");
+		
+		/*loginPage.typeUserName();
+		loginPage.typePassword();
+		loginPage.Submit();*/
+		
+	}	
+	
+}

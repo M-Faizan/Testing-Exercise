@@ -1,0 +1,55 @@
+package com.QA;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LogIn {
+	
+WebDriver driver;
+	
+   public LogIn(WebDriver driver) 
+	
+	{
+		this.driver=driver;
+	}
+	
+	
+	 By Email=By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[1]/input"); 
+	 	 
+	 By password =By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[2]/input");
+		 
+	 By submit =By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[4]/button"); 
+	  
+	
+   
+
+	 public void Login(String userid, String pass){
+	  driver.findElement(Email).sendKeys(userid);	 
+	  driver.findElement(password).sendKeys(pass);
+	  driver.findElement(submit).click();
+	  
+	  
+	 }
+	 
+	/* public void typeUserName() 
+	 
+	 { 
+		driver.findElement(userName).sendKeys("fmushtaq");
+		 
+	 }	 
+	 
+	 
+	 public void typePassword() 
+	 
+	 { 
+		 driver.findElement(password).sendKeys("voipfuture117");
+		 
+	 } 
+	
+	 public void Submit()
+	 
+	 { 
+		 driver.findElement(submit).click();
+
+	 
+	 }*/
+}

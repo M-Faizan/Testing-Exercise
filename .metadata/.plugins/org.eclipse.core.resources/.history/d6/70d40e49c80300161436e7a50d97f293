@@ -1,0 +1,58 @@
+package com.QA;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Campaign {
+	WebDriver driver;
+	
+	   public Campaign(WebDriver driver) 
+		
+		{
+			this.driver=driver;
+		}
+	   
+	 /*This function will be access from AddCanpaignTest, 
+	  it will log in and will Add Campaign and verify there is at-least one campaign exist.*/
+	   
+	   public void campaign()  {	 
+			
+			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			 By campaign=By.xpath("/html/body/div[1]/bm-navigation/div/ul/li[3]/a/span"); 
+			 By Addcampaign=By.xpath("/html/body/div[1]/div/section/div/bm-list-table/div/h3/bm-create-link/a/span");
+				
+			    driver.findElement(campaign).click();	 
+		        driver.findElement(Addcampaign).click();
+				
+		  }
+		 public void AddCompaign(String name, String subject, String body )  {	 
+				
+			 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			 By Name=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[1]/input"); 
+			 By Beacon=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[4]/div/div/input");			 
+			 By SelectB=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[4]/div/ul/li/div[3]/a/div");	
+			 
+			 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			 By App=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[6]/div/div/input");
+			 
+			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	         By SelectA=By.cssSelector("html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths body#app.ng-scope div.ng-scope div.view-container section#content.animate-fade-up.ng-scope div.page.ng-scope div.panel.panel-default div.panel-body form.ng-pristine.ng-invalid.ng-invalid-required.ng-valid-min fieldset.form-container.row div.form-group.col-xs-12.applications-select div.ui-select-container.ui-select-multiple.ui-select-bootstrap.dropdown.form-control.ng-invalid.ng-invalid-required.open ul.ui-select-choices.ui-select-choices-content.dropdown-menu.ng-scope li#ui-select-choices-7.ui-select-choices-group div#ui-select-choices-row-7-0.ui-select-choices-row.ng-scope.active a.ui-select-choices-row-inner div.ng-scope");
+	         
+	         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	         By Subject=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[12]/input");  
+			 By Body=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[13]/textarea"); 
+			 By Save=By.xpath("/html/body/div[1]/div/section/div/div[2]/div/form/fieldset/div[24]/button[1]");
+   
+			    driver.findElement(Name).sendKeys(name);	           
+			 	driver.findElement(Beacon).click();			 	
+			 	driver.findElement(SelectB).click();			 	 
+		        driver.findElement(App).click();		        
+		        driver.findElement(SelectA).click();
+		        driver.findElement(Subject).sendKeys(subject);
+		        driver.findElement(Body).sendKeys(body);
+		        driver.findElement(Save).click();
+		        
+		  }
+}

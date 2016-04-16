@@ -1,0 +1,27 @@
+package com.tesecases;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import com.QA.LogIn;
+
+public class Test2 {
+WebDriver driver;
+	
+	@Test 
+	public void Beacon() 
+	{ 
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+        driver.get("https://manage.sensorberg.com/#/signin");
+		
+		LogIn loginPage = new LogIn(driver); 		
+		loginPage.Login("fazi.g117@gmail.com", "Software123");
+		loginPage. Beacon();
+		loginPage.AddBeacon("Testing", "Whatever the description would be...");
+		
+		
+	}	
+	
+	
+}

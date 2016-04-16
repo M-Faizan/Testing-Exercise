@@ -1,0 +1,39 @@
+package com.QA;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LogIn {
+	
+WebDriver driver;
+	
+   public LogIn(WebDriver driver) 
+	
+	{
+		this.driver=driver;
+	}
+	//Web Element for Login Page
+   
+	 
+	    
+     //This function will be access from Test1 class, use for submitting values for log in
+	 
+	 public void Login(String userid, String pass)
+	  {
+		 By Email=By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[1]/input"); 
+	 	 
+		 By password =By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[2]/input");
+			 
+		 By submit =By.xpath("/html/body/div[1]/div/section/section/section[2]/div[2]/form/fieldset/div[4]/button"); 
+		  
+	  driver.findElement(Email).sendKeys(userid);	 
+	  driver.findElement(password).sendKeys(pass);
+	  driver.findElement(submit).click();  
+	  
+	  }
+	 
+	 //web Element for adding Beacon
+	 
+	 //By Beacon=By.xpath("/html/body/div[1]/bm-navigation/div/ul/li[2]/a/span"); 
+	 //By Add=By.xpath("/html/body/div[1]/div/section/div/bm-list-table/section/div[2]/div/bm-create-link/a/span");
+	
+}

@@ -1,0 +1,28 @@
+package com.tesecases;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import com.QA.LogIn;
+import com.QA.App;
+
+public class AddAppTest {
+WebDriver driver;
+
+	@Test 
+	public void App() 
+	{ 
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+        driver.get("https://manage.sensorberg.com/#/signin");
+		
+		LogIn loginPage = new LogIn(driver); 		
+		loginPage.Login("fazi.g117@gmail.com", "Software123");
+		
+		App app = new App(driver);
+		app.app();
+		app.AddApp("Testing", "Whatever the description would be...");
+		
+		
+	}	
+}

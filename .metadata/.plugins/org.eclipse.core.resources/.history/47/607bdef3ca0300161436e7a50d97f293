@@ -1,0 +1,27 @@
+package com.QA;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import com.QA.Beacon;
+import com.QA.Campaign;
+
+public class VerifyBeaconAndCompaign {
+	WebDriver driver;
+	
+	   public VerifyBeaconAndCompaign(WebDriver driver) 
+		
+		{
+			this.driver=driver;
+		}
+	   
+	   public void Verifycampaign()  {	 
+			
+			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			 			
+			    driver.findElement(campaign).click();	 
+		        driver.findElement(Addcampaign).click();
+				
+		  }
+	   
+}
